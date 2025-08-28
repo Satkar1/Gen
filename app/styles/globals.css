@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-emotion-happy: #34d399;
+  --color-emotion-sad: #60a5fa;
+  --color-emotion-anxious: #fbbf24;
+  --color-emotion-angry: #f87171;
+  --color-emotion-neutral: #9ca3af;
+  --color-emotion-excited: #f472b6;
+  --color-emotion-scared: #a78bfa;
+}
+
+@layer base {
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+@layer components {
+  .emotion-happy {
+    @apply bg-emerald-100 border-emerald-200;
+  }
+  
+  .emotion-sad {
+    @apply bg-blue-100 border-blue-200;
+  }
+  
+  .emotion-anxious {
+    @apply bg-amber-100 border-amber-200;
+  }
+  
+  .emotion-angry {
+    @apply bg-red-100 border-red-200;
+  }
+  
+  .emotion-neutral {
+    @apply bg-gray-100 border-gray-200;
+  }
+  
+  .emotion-excited {
+    @apply bg-pink-100 border-pink-200;
+  }
+  
+  .emotion-scared {
+    @apply bg-purple-100 border-purple-200;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Animation for crisis protocol */
+@keyframes pulse-emergency {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-emergency {
+  animation: pulse-emergency 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gradient-to-r {
+    background-image: none !important;
+  }
+  
+  .bg-opacity-90 {
+    opacity: 1 !important;
+  }
+}
